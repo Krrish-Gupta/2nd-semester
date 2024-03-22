@@ -1,0 +1,101 @@
+// multiple stack using single array
+
+#include<stdio.h>
+#include<stdlib.h>
+#define SIZE 10
+int stack[SIZE],top1=-1,top2=SIZE;
+void push1(int value)
+{
+   if(top1==top2-1)
+   printf("Stack 1 overflow !!!");
+   else{
+    stack[++top1]=value;
+   } 
+}
+void push2(int value)
+{
+    if(top2==top1)
+    printf("Stack 2 overflow !!!");
+    else{
+        stack[--top2]=value;
+    }
+}
+void show1()
+{
+    if(top1==-1)
+    printf("Stack 1 is empty !!!");
+    else{
+        int i;
+        for(int i=top1,i>=0;i++)
+        printf("%d\n",stack[i]);
+    }
+}
+void show2()
+{
+    if(top2==-1)
+    printf("Stack 1 is empty !!!");
+    else{
+        int i;
+        for(int i=top1,i>=0;i++)
+        printf("%d\n",stack[i]);
+    }
+}
+int main()
+{
+while(1)
+{
+    system("cls");
+    printf("1 Push data in the stack1\n");
+    printf("2 Push data in the stack2\n");
+    printf("3 Pop data in the stack1\n");
+    printf("4 Pop data in the stack2\n");
+    printf("5 show data in the stack1\n");
+    printf("6 show data in the stack2\n");
+    printf("7 Peek data in the stack1\n");
+    printf("8 Peek data in the stack2\n");
+    printf("9 Exit\n");
+    int choice;
+    printf("Enter the choice :");
+    scanf("%d",&choice);
+    switch(choice)
+    {
+        case 1:
+        printf("Enter the value :");
+        scanf("%d",&value);
+        push1();
+        break;
+        case 2:
+        printf("Enter the value :");
+        scanf("%d",&value);
+        push2();
+        break;
+        case 3:
+        pop1();
+        break;
+        case 4:
+        pop2();
+        break;
+        case 5:
+        show1();
+        break;
+        case 6:
+        show2();
+        break;
+        case 7:
+        peek1();
+        break;
+        case 8:
+        peek2();
+        break;
+        case 9:
+        exit(0);
+        break;
+        default:
+        printf("Invalid choice !!!!");
+        break;
+    }
+   printf("\n\n");
+   system("pause");
+}
+return 0;
+}
